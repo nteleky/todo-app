@@ -1,4 +1,4 @@
-//Todo Model
+ //Todo Model
 // A todo has two attributes: title and a completed status.
 
 var app = app || {};
