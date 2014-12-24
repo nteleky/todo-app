@@ -25,8 +25,27 @@
         <p>Written by <a href="https://www.nicholasteleky.com">Nick Teleky </a></p>
     </div>
 
-    <script type="text/template" id="item-template"></script>
-    <script type="text/template" id="stats-template"></script>
+    <script type="text/template" id="item-template">
+        <div class="view">
+            <input class="toggle" type="checkbox" <%= completed ? 'checked' : '' %>>
+            <label><%= title %></label>
+            <button class="destroy"></button>
+        </div>
+        <input class="edit" value="<%= title %> ">
+        </div>
+    </script>
+
+    <script type="text/template" id="stats-template">
+        <span id="todo-count"><%= remaining %> <%= remaining === 1 ? 'item' : 'items' %> left </span>
+        <ul id = "filters">
+            <li> <a class="selected" href="$/"> All</a></li>
+            <li><a href="#/active">Active </a> </li>
+            <li><a href="#/completed">Completed</a></li>
+        </ul>
+        <% if (completed) { %>
+            <button id="clear-completed">Clear completed (<%= completed %>) </button>
+        <% } %>
+    </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1-rc2/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
